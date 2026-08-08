@@ -1,46 +1,65 @@
 # LEDsBrightness2Buttons
 
-Проект для Arduino: управление яркостью двух светодиодов с помощью двух кнопок (увеличение/уменьшение).
+Arduino project: controlling the brightness of two LEDs using two buttons (increase/decrease).
 
-Описание
-- Язык: C++ / C
-- Простая схема: 2 светодиода, 2 кнопки.
-- Использует внутренние подтягивающие резисторы кнопок (INPUT_PULLUP).
+## Description
+- **Language:** C++ / C
+- **Simple circuit:** 2 LEDs, 2 buttons
+- **Uses:** Internal pull-up resistors on buttons (INPUT_PULLUP)
+- **Board:** Arduino Mega 2560
 
-Файлы в репозитории
-- Arduino IDE (оригинальная версия): [BrightnessDownUpButtons.ino](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/ArduinoIDE/BrightnessDownUpButtons.ino)
-- Visual Studio Code (переделанная версия): [BrightnessDownUpButtonsVSC](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/VisualStudioCode/BrightnessDownUpButtonsVSC)
-- Руководство и фотографии: [Photos/Guide](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/Photos/Guide)
-- Дополнительные изображения: [ComponentsNeeded.png](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/Photos/ComponentsNeeded.png), [HowToBuild.png](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/Photos/HowToBuild.png)
+## Files in the Repository
+- **Arduino IDE** (original version): [BrightnessDownUpButtons.ino](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/ArduinoIDE/BrightnessDownUpButtons.ino)
+- **Visual Studio Code** (adapted version): [BrightnessDownUpButtonsVSC](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/VisualStudioCode/BrightnessDownUpButtonsVSC)
+- **Photos & Guide:** [Photos/Guide](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/Photos/Guide)
+- **Additional images:** [ComponentsNeeded.png](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/Photos/ComponentsNeeded.png), [HowToBuild.png](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/Photos/HowToBuild.png)
 
-Краткая инструкция по подключению
-1. Плата: совместима с Arduino Uno / Nano / совместимыми платами.
-2. Светодиоды (LEDs): используйте ограничивающие резисторы 220Ω — один резистор на каждый светодиод.
-   - Подключение: анод LED → резистор → цифровой PWM-пин (в проекте используются пины 9 и 10), катод → GND (общий).
-3. Кнопки (Buttons): две кнопки подключаются к цифровым входам с внутренним подтягиванием (INPUT_PULLUP).
-   - Подключение: один контакт кнопки → цифровой пин (в проекте пины 2 и 3), второй контакт → GND.
-   - Поскольку в коде используется INPUT_PULLUP, внешние подтягивающие резисторы не требуются.
-4. Питание: подключите плату к компьютеру через USB или внешний источник 5V по инструкции для вашей платы.
+## Quick Connection Guide
 
-Сколько проводов и что нужно (быстро)
-- Светодиоды: 2 резистора 220Ω, 2 проводника от пинов к резисторам, общий провод GND (можно использовать один общий провод к шине GND).
-- Кнопки: 2 кнопки, по 2 провода на кнопку (пин + GND) — всего 4 провода, но часть GND можно объединять на общей шине.
-- Итого минимально: 2 (LED anode wires) + 1 (общий GND) + 2 (кнопки к пинам) = примерно 5 проводов, но практическая сборка обычно использует ~6–8 проводов с запасом.
+### 1. Board
+**Arduino Mega 2560** — all standard digital and PWM pins are compatible with this project.
 
-Как пользоваться
-1. Загрузите файл ArduinoIDE/BrightnessDownUpButtons.ino в среде Arduino IDE и выберите вашу плату/порт, затем загрузите.
-2. В Visual Studio Code используйте файл VisualStudioCode/BrightnessDownUpButtonsVSC (это та же логика, но с включением заголовка для VSC). Если используете PlatformIO, создайте проект и вставьте код.
-3. Нажатие кнопки "Up" (пин 2) увеличивает яркость на шаги по 5 (максимум 255).
-4. Нажатие кнопки "Down" (пин 3) уменьшает яркость на шаги по 5 (минимум 0).
+### 2. LEDs (Light Emitting Diodes)
+- Use **220Ω current-limiting resistors** — one resistor per LED
+- **Connection:**
+  - LED anode → resistor → digital PWM pin (pins 9 and 10 in this project)
+  - LED cathode → GND (common ground)
 
-Полезные примечания
-- Код использует задержку 20 мс после каждого нажатия для простого дебаунса. Для более надежного поведения можно добавить программный дебаунс.
-- Пины 9 и 10 поддерживают аппаратный ШИМ на стандартных платах Arduino Uno/Nano — убедитесь, что используете PWM-пины.
-- Если у вас другая плата, проверьте номера PWM-пинов в документации платы.
+### 3. Buttons
+- Two buttons connected to digital input pins with internal pull-up (INPUT_PULLUP)
+- **Connection:**
+  - One button contact → digital pin (pins 2 and 3 in this project)
+  - Other button contact → GND
+  - **Note:** Since INPUT_PULLUP is used in the code, external pull-up resistors are NOT needed
 
-Если нужно, я могу:
-- Добавить пошаговые схемы прямо в README (вставить изображения из /Photos).
-- Сформатировать README на английском языке.
-- Подготовить файл для PlatformIO или пример схемы Fritzing.
+### 4. Power Supply
+- Connect the board to your computer via USB, or use an external 5V power supply as per your board's specifications
 
-Автор: HugoTheJanitor
+## What You Need (Quick Parts List)
+- **LEDs:** 2 resistors (220Ω), 2 wires from pins to resistors, common GND wire
+- **Buttons:** 2 push buttons, 4 wires total (pin + GND connections, can share common GND rail)
+- **Wiring:** Approximately 5–6 wires minimum, but typical breadboard setup uses 8–10 for cleaner connections
+
+## How to Use
+
+1. **Arduino IDE:** Upload the file `ArduinoIDE/BrightnessDownUpButtons.ino` using Arduino IDE. Select your board (Arduino Mega 2560), choose the correct COM port, and upload.
+
+2. **Visual Studio Code:** Use the file `VisualStudioCode/BrightnessDownUpButtonsVSC` (same logic, includes headers for VSC compilation).
+
+3. **Button Behavior:**
+   - Press the **"Up"** button (pin 2) to increase brightness in steps of 5 (maximum 255)
+   - Press the **"Down"** button (pin 3) to decrease brightness in steps of 5 (minimum 0)
+
+## Useful Notes
+- The code uses a simple 20 ms delay after each button press for basic debouncing. For more reliable behavior, consider implementing a more robust debounce algorithm.
+- Pins 9 and 10 support hardware PWM on most Arduino boards, including Mega 2560. Verify that you're using PWM-capable pins.
+- If using a different board, check the pin documentation for PWM-compatible pins.
+
+## Additional Options
+- Step-by-step wiring diagrams (from /Photos) can be added to this README
+- This README is now in English
+- PlatformIO setup or Fritzing schematic examples can be prepared if needed
+
+---
+
+**Author:** HugoTheJanitor
