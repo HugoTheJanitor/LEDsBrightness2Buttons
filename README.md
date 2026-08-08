@@ -99,20 +99,20 @@ Button DOWN (Pin 3):
   - Other pin → GND
 ```
 
-**💡 Tip:** See [Photos/Guide](Photos/Guide) for visual wiring diagrams.
+**💡 Tip:** See [Photos/Guide](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/tree/main/Photos) for visual wiring diagrams.
 
 ### 2. Upload Code
 
 **Option A: Arduino IDE**
 1. Open Arduino IDE
-2. Go to File → Open → `ArduinoIDE/BrightnessDownUpButtons.ino`
+2. Go to File → Open → [BrightnessDownUpButtons.ino](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/ArduinoIDE/BrightnessDownUpButtons.ino)
 3. Select Tools → Board → Arduino Mega 2560
 4. Select Tools → Port → Your COM port
 5. Click Upload ↑
 
 **Option B: Visual Studio Code**
 1. Install Arduino extension
-2. Open `VisualStudioCode/BrightnessDownUpButtonsVSC`
+2. Open Visual Studio Code version
 3. Press Ctrl+Alt+U to upload
 
 ### 3. Test It!
@@ -286,13 +286,15 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file
 **HugoTheJanitor**  
 🔗 GitHub: [@HugoTheJanitor](https://github.com/HugoTheJanitor)
 
+This is my first journey into Arduino. I'm sharing my experience and knowledge to help other beginners learn faster. If you have improvements or corrections, please contribute!
+
 ---
 
-## 📞 Support & Questions
+## 📞 Questions?
 
-- 💬 **Issues:** [Create a GitHub Issue](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/issues)
-- 📖 **Documentation:** Check [CONTRIBUTING.md](CONTRIBUTING.md)
-- 🤝 **Code of Conduct:** See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- 💬 **Report Issues:** [Create a GitHub Issue](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/issues)
+- 📖 **Learn More:** Check [CONTRIBUTING.md](CONTRIBUTING.md)
+- 🤝 **Community:** See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
