@@ -1,22 +1,27 @@
 # LEDsBrightness2Buttons
 
-Simple Arduino project for controlling the brightness of two LEDs using two buttons.
+A beginner-friendly Arduino project for controlling the brightness of two LEDs using two buttons.
 
-Perfect for learning Arduino basics: digital input, PWM, and how to handle button presses.
+This project is designed for learning Arduino basics, digital input, PWM, and button control.
 
 ---
 
 ## About
 
 Two buttons control the brightness of two LEDs:
+
 - **UP button** → increases brightness
-- **DOWN button** → decreases brightness  
-- **Range** → 0 to 255 (PWM)
+- **DOWN button** → decreases brightness
+- **Brightness range** → 0–255 (PWM)
 - **LEDs** → controlled with PWM on pins 9 and 10
 
-This is one of my first Arduino projects. Feel free to use it, modify it, and learn from the code!
+This is one of my first Arduino projects.
 
-If it helps you, a ⭐ is appreciated.
+These projects document my learning journey with Arduino and Embedded Systems.
+
+Feel free to use, modify, and learn from the code.
+
+If this project helps you, a ⭐ on the repository is appreciated.
 
 ---
 
@@ -25,7 +30,7 @@ If it helps you, a ⭐ is appreciated.
 ### Components
 
 - Arduino Mega 2560
-- 2x LEDs (any color)
+- 2x LEDs
 - 2x 220Ω resistors
 - 2x push buttons
 - Breadboard
@@ -35,14 +40,17 @@ If it helps you, a ⭐ is appreciated.
 ### Wiring
 
 **LEDs:**
+
 - LED 1 → 220Ω resistor → Pin 9 (PWM) → Cathode to GND
 - LED 2 → 220Ω resistor → Pin 10 (PWM) → Cathode to GND
 
 **Buttons:**
-- UP button → Pin 2, other side to GND (uses INPUT_PULLUP)
-- DOWN button → Pin 3, other side to GND (uses INPUT_PULLUP)
 
-See [Photos/](Photos/) for wiring diagrams.
+- UP button → Pin 2 → other side to GND
+- DOWN button → Pin 3 → other side to GND
+- Buttons use `INPUT_PULLUP`
+
+See the [Photos](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/tree/main/Photos) folder for wiring diagrams and project photos.
 
 ---
 
@@ -50,90 +58,100 @@ See [Photos/](Photos/) for wiring diagrams.
 
 ### Arduino IDE
 
-1. Open Arduino IDE
-2. Open `ArduinoIDE/BrightnessDownUpButtons.ino`
-3. Select **Tools → Board → Arduino Mega 2560**
-4. Select **Tools → Port → Your COM port**
-5. Click **Upload**
+1. Open Arduino IDE.
+2. Open `ArduinoIDE/BrightnessDownUpButtons.ino`.
+3. Select **Tools → Board → Arduino Mega 2560**.
+4. Select **Tools → Port → Your COM port**.
+5. Click **Upload**.
 
 ### Visual Studio Code
 
-1. Open the `VisualStudioCode/` folder
-2. Install Arduino extension
-3. Upload with Ctrl+Alt+U
+A Visual Studio Code version of the project is also included.
+
+Open the `VisualStudioCode/` folder and use the Arduino extension to upload the project.
 
 ---
 
 ## How It Works
 
-- **PWM (Pulse Width Modulation)** → Controls brightness by rapidly turning LED on/off
-- **analogWrite(pin, 0-255)** → Sets brightness level
-- **INPUT_PULLUP** → Uses internal resistor on button pins (no external needed)
-- **Simple debounce** → 20ms delay to prevent false button presses
+The brightness of the LEDs is controlled using **PWM (Pulse Width Modulation)**.
+
+- `analogWrite(pin, 0)` → LED off
+- `analogWrite(pin, 255)` → maximum brightness
+- Values between `0` and `255` → different brightness levels
+
+The buttons use `INPUT_PULLUP`, which means the Arduino's internal pull-up resistors are used instead of external resistors.
+
+A short delay is also used for simple button debouncing.
 
 ```cpp
-analogWrite(LED_PIN, brightness);  // 0 = off, 255 = full brightness
+analogWrite(LED_PIN, brightness);
 ```
 
 ---
 
 ## Project Structure
 
-```
+```text
 LEDsBrightness2Buttons/
 │
-├── README.md                          # This file
-├── LICENSE                            # MIT License
-│
 ├── ArduinoIDE/
-│   └── BrightnessDownUpButtons.ino    # Main code
+│   └── BrightnessDownUpButtons.ino
 │
 ├── VisualStudioCode/
-│   └── BrightnessDownUpButtonsVSC/    # VSC version
+│   └── BrightnessDownUpButtonsVSC/
 │
-└── Photos/                            # Wiring and assembly guides
+├── Photos/
+│   └── ...
+│
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 ---
 
 ## What I Learned
 
-✅ Digital input and output (INPUT, OUTPUT, INPUT_PULLUP)  
-✅ PWM and `analogWrite()`  
-✅ Reading buttons with `digitalRead()`  
-✅ Simple debouncing  
-✅ Basic program flow (setup, loop)  
-✅ Working with pins and breadboard  
+- Digital input and output (`INPUT`, `OUTPUT`, `INPUT_PULLUP`)
+- PWM and `analogWrite()`
+- Reading buttons with `digitalRead()`
+- Simple button debouncing
+- Basic program flow (`setup()`, `loop()`)
+- Working with Arduino pins and a breadboard
 
 ---
 
 ## Troubleshooting
 
-**LED doesn't light:**
-- Check LED polarity (+ to resistor, - to GND)
-- Check resistor value (220Ω)
-- Verify pin numbers in code
+### LED doesn't light
 
-**Button doesn't work:**
-- Check connections to pins 2 and 3
-- Verify button pin goes to GND
-- Test with multimeter
+- Check LED polarity.
+- Check that the resistor is 220Ω.
+- Verify the pin numbers in the code.
+- Check the GND connection.
 
-**Code won't upload:**
-- Verify board is set to "Arduino Mega 2560"
-- Check USB cable and COM port
-- Try a different USB port
+### Button doesn't work
+
+- Check the connections to pins 2 and 3.
+- Make sure the other side of each button is connected to GND.
+- Check the button orientation on the breadboard.
+
+### Code won't upload
+
+- Make sure **Arduino Mega 2560** is selected.
+- Check the USB cable.
+- Check the selected COM port.
+- Try another USB port.
 
 ---
 
 ## License
 
-MIT License - Use, modify, and share freely!
+This project is licensed under the MIT License.
 
-See [LICENSE](LICENSE) for details.
+See [LICENSE](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/blob/main/LICENSE) for details.
 
 ---
 
-Made with ❤️ while learning Arduino.
-
-Questions? Open an [Issue](https://github.com/HugoTheJanitor/LEDsBrightness2Buttons/issues)!
+Made while learning Arduino and Embedded Systems.
